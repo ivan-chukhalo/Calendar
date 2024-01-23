@@ -29,11 +29,13 @@ const renderCalendar = () => {
     currentDateNumber = new Date().getDate();
   let liTag = "";
 
-  for (let i = firstDayOfMonth - 1; i > 0; i--) {     // creating elements of prev month days
+  for (let i = firstDayOfMonth - 1; i > 0; i--) {
+    // creating elements of prev month days
     liTag += `<li class="inactive">${lastDateOfLastMonth - i + 1}</li>`;
   }
 
-  for (let i = 1; i <= lastDateOfMonth; i++) {        // creating elements of current month days
+  for (let i = 1; i <= lastDateOfMonth; i++) {
+    // creating elements of current month days
     if (i === currentDateNumber) {
       liTag += `<li class="active">${i}</li>`;
     } else {
@@ -41,7 +43,8 @@ const renderCalendar = () => {
     }
   }
 
-  for (let i = 1; i <= 7 - lastDayOfMonth; i++) {     // creating elements of next month days
+  for (let i = 1; i <= 7 - lastDayOfMonth; i++) {
+    // creating elements of next month days
     liTag += `<li class="inactive">${i}</li>`;
   }
 

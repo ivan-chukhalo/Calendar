@@ -96,16 +96,15 @@ header .icons span:last-child {
   background: #f2f2f2;
 }
 
-.days li.active{
-    background: #fff;
+.days li.active {
+  background: #fff;
 }
 
+.days li.active::before {
+  background: #9b59b6;
+}
 
-.days li.active::before{
-    background: #9b59b6;
-  }
-  
-  .days li.active:hover::before{
+.days li.active:hover::before {
   background: #e5a6ff;
 }
 

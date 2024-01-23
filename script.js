@@ -24,6 +24,7 @@ const months = [
 const renderCalendar = () => {
   let firstDayOfMonth = new Date(currYear, currMonth, 1).getDay(),
       lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate(),
+      lastDayOfMonth = new Date(currYear, currMonth, lastDateOfMonth).getDay(),
       lastDateOfLastMonth = new Date(currYear, currMonth, 0).getDate();
   let liTag = "";
 
@@ -34,6 +35,10 @@ const renderCalendar = () => {
 
   for (let i = 1; i <= lastDateOfMonth; i++) {
     liTag += `<li>${i}</li>`;
+  }
+
+  for (let i = 1; i <= 7 - lastDayOfMonth; i++){
+    liTag += `<li class="inactive">${i}</li>`;
   }
 
   currentDate.innerText = `${months[currMonth]} ${currYear}`;

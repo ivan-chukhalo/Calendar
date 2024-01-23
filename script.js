@@ -1,5 +1,6 @@
-const currentDate = document.querySelector(".current-date");
-const daysTag = document.querySelector(".days");
+const currentDate = document.querySelector(".current-date"),
+  daysTag = document.querySelector(".days"),
+  prevNextIcon = document.querySelectorAll(".icons span");
 
 let date = new Date(),
   currYear = date.getFullYear(),
@@ -15,6 +16,7 @@ const months = [
   "July",
   "August",
   "September",
+  "October",
   "November",
   "December",
 ];
@@ -32,3 +34,17 @@ const renderCalendar = () => {
 };
 
 renderCalendar();
+
+prevNextIcon.forEach((icon) => {
+  icon.addEventListener("click", (e) => {
+    if (icon.id === "prev") {
+      currYear = currMonth === 0 ? currYear - 1 : currYear;
+      currMonth = currMonth === 0 ? 11 : currMonth - 1;
+    }
+    if (icon.id === "next") {
+      currYear = currMonth === 11 ? currYear + 1 : currYear;
+      currMonth = currMonth === 11 ? 0 : currMonth + 1;
+    }
+    renderCalendar();
+  });
+});

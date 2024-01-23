@@ -36,11 +36,14 @@ const renderCalendar = () => {
 
   for (let i = 1; i <= lastDateOfMonth; i++) {
     // creating elements of current month days
-    if (i === currentDateNumber) {
-      liTag += `<li class="active">${i}</li>`;
-    } else {
-      liTag += `<li>${i}</li>`;
-    }
+    let isToday =
+      date.getDate() === i &&
+      currMonth === date.getMonth() &&
+      currYear === date.getFullYear()
+        ? "active"
+        : "";
+
+    liTag += `<li class="${isToday}">${i}</li>`;
   }
 
   for (let i = 1; i <= 7 - lastDayOfMonth; i++) {

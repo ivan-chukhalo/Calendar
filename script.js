@@ -22,8 +22,15 @@ const months = [
 ];
 
 const renderCalendar = () => {
-  let lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate();
+  let firstDayOfMonth = new Date(currYear, currMonth, 1).getDay(),
+      lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate(),
+      lastDateOfLastMonth = new Date(currYear, currMonth, 0).getDate();
   let liTag = "";
+
+  for (let i = firstDayOfMonth - 1; i > 0; i--){
+    liTag += `<li class="inactive">${lastDateOfLastMonth - i + 1}</li>`;
+  }
+
 
   for (let i = 1; i <= lastDateOfMonth; i++) {
     liTag += `<li>${i}</li>`;

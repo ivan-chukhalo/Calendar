@@ -25,8 +25,7 @@ const renderCalendar = () => {
   let firstDayOfMonth = new Date(currYear, currMonth, 1).getDay(),
     lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate(),
     lastDayOfMonth = new Date(currYear, currMonth, lastDateOfMonth).getDay(),
-    lastDateOfLastMonth = new Date(currYear, currMonth, 0).getDate(),
-    currentDateNumber = new Date().getDate();
+    lastDateOfLastMonth = new Date(currYear, currMonth, 0).getDate();
   let liTag = "";
 
   for (let i = firstDayOfMonth - 1; i > 0; i--) {
